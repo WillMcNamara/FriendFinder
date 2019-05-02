@@ -2,7 +2,8 @@
 require('dotenv').config();
 var express = require("express");
 var path = require("path");
-
+var api = require("./app/routing/apiRoutes");
+var html = require("./app/routing/htmlRoutes");
 // Sets up the Express App
 var app = express();
 let PORT = process.env.PORT;
@@ -11,6 +12,10 @@ let PORT = process.env.PORT;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+api(app);
+html(app);
+
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+    console.log("Server listening on " + PORT);
+});
+
