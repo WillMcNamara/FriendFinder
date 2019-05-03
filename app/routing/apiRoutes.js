@@ -10,16 +10,26 @@ function apiGet(app){
     // posting info to friends array
     app.post("/api/friends", function(req, res){
         var newFriend = req.body;
+            for (i = 0; i < newFriend.scores.length; i++){
+                newFriend.scores[i] = parseInt(newFriend.scores[i]);
+            }
         friends.push(newFriend);
 
-        var compat = 0;
-
-            for (i = 0; i = friends.length; i++){
-                for (j = 0; j < 10; j++){
-                    
+        var compat = 100;
+        var match = friends[0];
+            //finding best match process
+            for (i = 0; i < friends.length - 1; i++){
+                console.log(newCompat);
+                var newCompat = 0;
+                for (j = 0; j < newFriend.scores.length; j++){
+                    newCompat += Math.abs(friends[i].scores[j] - newFriend.scores[j]);
+                }
+                if (newCompat < compat){
+                    compat = newCompat;
+                    match = friends[i];
                 }
             }
-        res.json(friends[0]);
+            res.json(match);
     });
 }
 
