@@ -1,6 +1,6 @@
 # FriendFinder
 
-This app is run through Heroku. You can view it here: https://cryptic-wave-77271.herokuapp.com/
+This app is run through Heroku. You can view it here: https://quiet-savannah-13630.herokuapp.com/
 
 After clicking the link to the survey, you are prompted to enter your name and link an image of yourself and answer 10 questions to test your compatability with the friends listed in the API. After submitting your information is stored into the API and the friend with the most compatability is displayed to the user.
 
